@@ -1,14 +1,28 @@
 const express = require('express');
-const cors = require('cors');
+const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
+// API routes (define your backend API routes here)
+// e.g., app.get('/api/data', (req, res) => { ... })
 
-// Example API Route
-app.get('/api', (req, res) => {
-  res.send("Hello from backend");
+console.log(`server started`);
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../my-app/public')));
+
+// // Handle React routing, return all requests to React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../my-app/public', 'index.html'));
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// // app.get('/api/data', (req, res) => {
+//     console.log('Received request for data');
+//     res.send({ message: 'Hello from the server!' });
+// });
+
+
+// Start the server on port 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port http://localhost:${PORT}`);
+});
