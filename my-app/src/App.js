@@ -7,6 +7,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import Login from './components/Login';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <Routes>
      <Route  path="/" element={<Main/>} />
      <Route  path="/form" element={<Form/>} />
+     <Route  path="/login" element={<Login/>} />
         </Routes>
     
      </Router>
