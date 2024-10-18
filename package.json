@@ -1,11 +1,17 @@
 {
-  "name": "zenith",
+  "name": "zenith-app",
   "version": "1.0.0",
-  "description": "roadmap",
-  "main": "main.js",
+  "description": "Full stack application with React frontend and Node.js backend",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run start:frontend & npm run start:backend",
+    "start:frontend": "cd my-app && npm start",
+    "start:backend": "cd backend && npm start",
+    "install:frontend": "cd my-app && npm install",
+    "install:backend": "cd backend && npm install"
   },
-  "author": "Zenith",
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "author": "",
   "license": "ISC"
 }
