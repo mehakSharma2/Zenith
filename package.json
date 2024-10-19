@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "concurrently": "^9.0.1",
-    "firebase": "^10.14.1"
+    "firebase": "^10.14.1",
+    "typed.js": "^2.1.0"
   },
   "author": "",
   "license": "ISC",
-  "main": "index.js",
-  "devDependencies": {}
+  "main": "index.js"
 }
