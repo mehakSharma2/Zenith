@@ -24,7 +24,7 @@ const Roadmap = () => {
 
   // If roadmapData is still loading, show a loading message
   if (!roadmapData) {
-    return <div>Loading Roadmap...</div>;
+    return <div className='text-center mt-10 font-semibold text-2xl'>Loading Roadmap...</div>;
   }
 
   // Generate the circles from the fetched data
@@ -37,7 +37,7 @@ const Roadmap = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-800">
+    <div className="flex justify-center items-center min-h-screen bg-gray-600">
       <div className="flex flex-row items-center gap-16">
         {circles.map((circle, index) => (
           <div

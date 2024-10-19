@@ -48,9 +48,19 @@ export default function Main(props){
     <nav className="bg-[#3e92cc] text-white">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <span className="self-center text-3xl font-semibold whitespace-nowrap text-shadow-lg dark:text-white">Zenith</span>
-      <Link to='/login' className='hover:text-shadow-lg '>Login/SignUp</Link>
 
-      {/* <div className="bg-red-400 w-10 h-10 rounded-full bg-cover cursor-pointer " style={{ backgroundImage: `url(${profile})` }}></div> */}
+      {props.image ? (
+          <Link to="/login" className="hover:text-shadow-lg" onClick={props.toggleImage}>Login/SignUp</Link>
+        ) : (
+          <div
+            className="bg-red-400 w-10 h-10 rounded-full bg-cover cursor-pointer"
+            style={{ backgroundImage: `url(${profile})` }}
+            onClick={props.toggleImage} // Optional: Toggle back to login on click
+          />
+        )}
+      
+
+      
   </div>
   </nav>
   
