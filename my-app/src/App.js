@@ -1,13 +1,12 @@
 import './App.css';
-import Roadmap from './components/Roadmap';
-// import Main from './components/Main';
-// import Form from './components/Form';
-// import Login from './components/Login';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Routes
-// } from "react-router-dom";
+import Main from './components/Main';
+import Form from './components/Form';
+import Login from './components/Login';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
 
 
 
@@ -23,9 +22,7 @@ function App() {
      <Route  path="/login" element={<Login/>} />
         </Routes>
     
-     </Router> */}
-
-     <Roadmap/>
+     </Router>
    
 
     </>

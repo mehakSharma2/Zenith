@@ -1,67 +1,108 @@
-import React, { useState } from 'react';
-import { auth } from '../firebaseconfig'; // Import the Firebase auth instance
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // For redirection
+import { auth } from '../firebaseconfig';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  sendPasswordResetEmail, // Import the reset password function
+  sendPasswordResetEmail,
+  onAuthStateChanged,
+  // deleteUser, // To delete user
 } from 'firebase/auth';
 import image4 from './image4.png';
 
 const App = () => {
-  // Set the background image for the page
-  document.body.style.backgroundImage = `url('${image4}')`;
-  document.body.style.backgroundPosition = 'center';
-  document.body.style.backgroundRepeat = 'no-repeat';
-  document.body.style.backgroundSize = 'cover';
-
-  const [showFirst, setShowFirst] = useState(true); // Toggle between login and signup
+  // State variables
+  const [showFirst, setShowFirst] = useState(true); // Toggle login/signup
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
+  const [notification, setNotification] = useState(''); // Notification message
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
+  const navigate = useNavigate();
 
-  // Login function using Firebase Authentication
+  // Clear input fields
+  const clearFields = () => {
+    setEmail('');
+    setPassword('');
+    setName('');
+    setUsername('');
+  };
+
+  // Show notification for a specific time
+  const showNotification = (message, duration) => {
+    setNotification(message);
+    setTimeout(() => setNotification(''), duration);
+  };
+
+  // Manage background image for login page and reset on navigation
+  useEffect(() => {
+    document.body.style.backgroundImage = `url('${image4}')`;
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundSize = 'cover';
+
+    // Reset background on cleanup (when navigating away from the login page)
+    return () => {
+      document.body.style.backgroundImage = 'none';
+    };
+  }, []); // Apply once when component mounts and clean up on unmount
+
+  // Login function
   const login = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      alert(`Welcome back, ${user.email}`);
-      console.log('User logged in:', user);
+      setIsLoggedIn(true); // Set user as logged in
+      showNotification(`Welcome back, ${user.email}`, 5000); // 5s notification
+      clearFields(); // Clear input fields
+      navigate('/'); // Redirect to main page
     } catch (error) {
-      alert(`Login failed: ${error.message}`);
+      showNotification('Invalid email or password. Please try again.', 5000); // 5s notification
       console.error('Login error:', error);
     }
   };
 
-  // Signup function using Firebase Authentication
+  // Signup function
   const signup = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      alert(`Account created for ${user.email}`);
-      console.log('User signed up:', user);
+      setIsLoggedIn(true); // Automatically log the user in
+      showNotification(`Account created for ${user.email}`, 2000); // 2s notification
+      clearFields(); // Clear input fields
+      navigate('/'); // Redirect to main page
     } catch (error) {
-      alert(`Signup failed: ${error.message}`);
+      showNotification('Email already in use. Please try a different one.', 2000); // 2s notification
       console.error('Signup error:', error);
     }
   };
 
-  // Forgot password function using Firebase Authentication
+  // Forgot password function
   const forgotPassword = async () => {
     if (!email) {
-      alert('Please enter your email address to reset your password.');
+      showNotification('Please enter your email address.', 2000); // 2s notification
       return;
     }
     try {
       await sendPasswordResetEmail(auth, email);
-      alert(`Password reset email sent to ${email}`);
+      showNotification(`Password reset email sent to ${email}`, 2000); // 2s notification
     } catch (error) {
-      alert(`Failed to send password reset email: ${error.message}`);
+      showNotification('Failed to send password reset email.', 2000); // 2s notification
       console.error('Password reset error:', error);
     }
   };
+
+  // Monitor authentication state
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  });
 
   return (
     <div style={styles.loginContainer} className="opacity-85">
@@ -70,100 +111,97 @@ const App = () => {
           {showFirst ? 'Sign in' : 'Signup'}
         </div>
 
-        {/* Login form */}
-        {showFirst ? (
-          <div>
-            <form onSubmit={login}>
-              <div style={styles.inputBox}>
-                <label style={styles.label}>Email</label>
-                <input
-                  type="email"
-                  placeholder="username@gmail.com"
-                  style={styles.input}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div style={styles.inputBox}>
-                <label style={styles.label}>Password</label>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  style={styles.input}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
+        {/* Show notification if exists */}
+        {notification && <div style={styles.notification}>{notification}</div>}
 
-              <div style={styles.forgotPassword}>
-                <button
-                  type="button"
-                  onClick={forgotPassword}
-                  style={styles.linkButton}
-                >
-                  Forgot Password?
-                </button>
-              </div>
-              <button style={styles.loginButton} type="submit">
-                Sign in
+        {showFirst ? (
+          <form onSubmit={login}>
+            <div style={styles.inputBox}>
+              <label style={styles.label}>Email</label>
+              <input
+                type="email"
+                placeholder="username@gmail.com"
+                style={styles.input}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div style={styles.inputBox}>
+              <label style={styles.label}>Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                style={styles.input}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            <div style={styles.forgotPassword}>
+              <button
+                type="button"
+                onClick={forgotPassword}
+                style={styles.linkButton}
+              >
+                Forgot Password?
               </button>
-            </form>
-          </div>
+            </div>
+            <button style={styles.loginButton} type="submit">
+              Sign in
+            </button>
+          </form>
         ) : (
-          <div>
-            {/* Signup form */}
-            <form onSubmit={signup}>
-              <div style={styles.inputBox}>
-                <label style={styles.label}>Name</label>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  style={styles.input}
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
-              <div style={styles.inputBox}>
-                <label style={styles.label}>Username</label>
-                <input
-                  type="text"
-                  placeholder="username123@"
-                  style={styles.input}
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                />
-              </div>
-              <div style={styles.inputBox}>
-                <label style={styles.label}>Email</label>
-                <input
-                  type="email"
-                  placeholder="username@gmail.com"
-                  style={styles.input}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div style={styles.inputBox}>
-                <label style={styles.label}>Password</label>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  style={styles.input}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              <button style={styles.loginButton} type="submit">
-                Sign up
-              </button>
-            </form>
-          </div>
+          <form onSubmit={signup}>
+            <div style={styles.inputBox}>
+              <label style={styles.label}>Name</label>
+              <input
+                type="text"
+                placeholder="Your Name"
+                style={styles.input}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div style={styles.inputBox}>
+              <label style={styles.label}>Username</label>
+              <input
+                type="text"
+                placeholder="username123@"
+                style={styles.input}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </div>
+            <div style={styles.inputBox}>
+              <label style={styles.label}>Email</label>
+              <input
+                type="email"
+                placeholder="username@gmail.com"
+                style={styles.input}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div style={styles.inputBox}>
+              <label style={styles.label}>Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                style={styles.input}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button style={styles.loginButton} type="submit">
+              Sign up
+            </button>
+          </form>
         )}
 
         <div style={styles.registerText}>
@@ -179,7 +217,7 @@ const App = () => {
   );
 };
 
-// Styles (unchanged)
+// Styles
 const styles = {
   loginContainer: {
     display: 'flex',
@@ -200,6 +238,11 @@ const styles = {
     marginBottom: '20px',
     color: '#333',
     textAlign: 'center',
+  },
+  notification: {
+    color: 'red',
+    textAlign: 'center',
+    marginBottom: '10px',
   },
   inputBox: {
     marginBottom: '20px',
@@ -235,15 +278,16 @@ const styles = {
     borderRadius: '8px',
     cursor: 'pointer',
     fontSize: '16px',
-    marginTop: '10px',
   },
   registerText: {
-    marginTop: '20px',
     textAlign: 'center',
-    fontSize: '14px',
+    marginTop: '20px',
+    color: '#666',
   },
-  characterBox: {
-    marginLeft: '50px',
+  link: {
+    color: '#327ba8',
+    cursor: 'pointer',
+    textDecoration: 'underline',
   },
 };
 
