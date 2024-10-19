@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ref, push } from 'firebase/database';
 import { db } from '../firebaseconfig'; 
+import {Link} from 'react-router-dom';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -91,6 +92,7 @@ function App() {
     },
     button: {
       marginTop: '20px',
+      textAlign : 'center',
       backgroundColor: '#3e92cc',
       color: 'white',
       padding: '10px',
@@ -253,7 +255,7 @@ function App() {
           </React.Fragment>
         ))}
 
-        <button type="submit" style={styles.button}>Generate Roadmap</button>
+      <Link to='/roadmap' style={styles.button}>Generate Roadmap</Link>
       </form>
     </div>
   );

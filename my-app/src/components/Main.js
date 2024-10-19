@@ -99,8 +99,8 @@ export default function Main(props){
         </a>
 
        
-        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
-             Deep Learning
+        <a href='https://codedamn.com/learning-path/fullstack' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Full Stack
         </a>
 
         

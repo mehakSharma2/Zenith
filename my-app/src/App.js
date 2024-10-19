@@ -8,6 +8,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import Roadmap from './components/Roadmap';
 // import Profile from './components/Profile'
 
 
@@ -20,8 +21,9 @@ function App() {
 
     <Routes>
      <Route  path="/" element={<Main/>} />
-     <Route  path="/form" element={<Form/>} />
+     <Route  path="/Form" element={<Form/>} />
      <Route  path="/login" element={<Login/>} />
+     <Route  path="/roadmap" element={<Roadmap/>} />
         </Routes>
     
      </Router>
