@@ -85,66 +85,66 @@ export default function Main(props){
 
     </div>
 
-    <div  className="mt-20 w-screen h-screen flex justify-center bg-white  "style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center',  }}>
-        <div className='mt-[100px] w-[85%] p-10 pl-32 space-x-3 space-y-3 grid grid-cols-3 justify-items-center items-start text-white opacity-100 gap-5 '>
+    <div  className="mt-20 w-screen h-screen flex justify-center bg-white  "style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center',   }}>
+        <div className='mt-[100px] w-[85%] p-10 space-x-3 space-y-3 grid grid-cols-3 justify-items-center items-start text-white opacity-100 gap-5  '>
 
-        <a href='https://codedamn.com/learning-path/frontend' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+        <a href='https://codedamn.com/learning-path/frontend' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
              Frontend developer
         </a>
 
-        <a href='https://codedamn.com/learning-path/backend' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+        <a href='https://codedamn.com/learning-path/backend' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
              Backend developer
         </a>
 
-        <a href='https://aigents.co/learn/roadmaps/machine-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+        <a href='https://aigents.co/learn/roadmaps/machine-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
              Machine Learning
         </a>
 
-        <a href='https://codedamn.com/learning-path/devops' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+        <a href='https://codedamn.com/learning-path/devops' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
              DevOps
         </a>
 
-        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
              Deep Learning
         </a>
 
        
-        <a href='https://codedamn.com/learning-path/fullstack' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+        <a href='https://codedamn.com/learning-path/fullstack' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
              Full Stack
         </a>
 
         
         
-        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
              Deep Learning
         </a>
 
 
         
         
-        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
-             Deep Learning
+        <a href='https://aigents.co/learn/roadmaps/data-science-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
+             Data Scientist
         </a>
 
 
        
-        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
-             Deep Learning
+        <a href='https://aigents.co/learn/roadmaps/software-fundamentals-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
+             Software Fundamentals
         </a>
 
 
-        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
-             Deep Learning
+        <a href='https://aigents.co/learn/roadmaps/java-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
+             JAVA Developer
         </a>
 
 
-        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
-             Deep Learning
+        <a href='https://aigents.co/learn/roadmaps/mlops-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
+             MLOps Developer
         </a>
 
 
-        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
-             Deep Learning
+        <a href='https://aigents.co/learn/roadmaps/python-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg hover:text-shadow-lg'>
+             Python Developer
         </a>
 
 
