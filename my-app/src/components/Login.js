@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-// import image3 from './image3.jpg';
+import image4 from './image4.png';
 
 const App = () => {
-//   document.body.style.backgroundImage = url(${image3});
+  
+  document.body.style.backgroundImage = `url('${image4}')`;
   document.body.style.backgroundPosition = 'center';
   document.body.style.backgroundRepeat = 'no-repeat';
   document.body.style.backgroundSize = 'cover';
 
+  
   const [showFirst, setShowFirst] = useState(true);
 
-
+  
   const login = () => {
     alert('Login function called');
   };
@@ -19,41 +21,69 @@ const App = () => {
   };
 
   return (
-    <div style={styles.loginContainer}>
+    <div style={styles.loginContainer} className='opacity-85'>
       <div style={styles.loginBox}>
         <div style={styles.logo}>
           {showFirst ? 'Sign in' : 'Signup'}
         </div>
-        <form onSubmit={(e) => {
-          e.preventDefault();
-          showFirst ? login() : signup();
-        }}>
-          <div style={styles.inputBox}>
-            <label style={styles.label}>Email</label>
-            <input type="email" placeholder="username@gmail.com" style={styles.input} required />
-          </div>
-          <div style={styles.inputBox}>
-            <label style={styles.label}>Password</label>
-            <input type="password" placeholder="Password" style={styles.input} required />
-          </div>
 
-          {showFirst ? (
-            <>
+        {}
+        {showFirst ? (
+          <div>
+            {}
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              login();
+            }}>
+              <div style={styles.inputBox}>
+                <label style={styles.label}>Email</label>
+                <input type="email" placeholder="username@gmail.com" style={styles.input} required />
+              </div>
+              <div style={styles.inputBox}>
+                <label style={styles.label}>Password</label>
+                <input type="password" placeholder="Password" style={styles.input} required />
+              </div>
+              
+
               <div style={styles.forgotPassword}>
                 <a href="/" style={styles.link}>Forgot Password?</a>
               </div>
               <button style={styles.loginButton} type="submit">Sign in</button>
-            </>
-          ) : (
-            <button style={styles.loginButton} type="submit">Sign up</button>
-          )}
-        </form>
+            </form>
+          </div>
+        ) : (
+          <div>
+            {}
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              signup();
+            }}>
+              <div style={styles.inputBox}>
+                <label style={styles.label}>Name</label>
+                <input type="text" placeholder="Your Name" style={styles.input} required />
+              </div>
+              <div style={styles.inputBox}>
+                <label style={styles.label}>Username</label>
+                <input type="text" placeholder="username123@" style={styles.input} required />
+              </div>
+              <div style={styles.inputBox}>
+                <label style={styles.label}>Email</label>
+                <input type="email" placeholder="username@gmail.com" style={styles.input} required />
+              </div>
+              <div style={styles.inputBox}>
+                <label style={styles.label}>Password</label>
+                <input type="password" placeholder="Password" style={styles.input} required />
+              </div>
+              <button style={styles.loginButton} type="submit">Sign up</button>
+            </form>
+          </div>
+        )}
 
         <div style={styles.registerText}>
           {showFirst ? (
-            <>Don't have an account yet? <a href="/" style={styles.link} onClick={() => setShowFirst(false)}>Register for free</a></>
+            <>Don't have an account yet? <a href="#" style={styles.link} onClick={() => setShowFirst(false)}>Register for free</a></>
           ) : (
-            <>Already have an account? <a href="/" style={styles.link} onClick={() => setShowFirst(true)}>Sign in</a></>
+            <>Already have an account? <a href="#" style={styles.link} onClick={() => setShowFirst(true)}>Sign in</a></>
           )}
         </div>
       </div>
@@ -81,6 +111,7 @@ const styles = {
     fontSize: '24px',
     marginBottom: '20px',
     color: '#333',
+    textAlign: 'center',
   },
   inputBox: {
     marginBottom: '20px',
@@ -101,11 +132,11 @@ const styles = {
   },
   link: {
     textDecoration: 'none',
-    color: '#ff6b35',
+    color: '#327ba8',
     fontSize: '14px',
   },
   loginButton: {
-    backgroundColor: '#ff6b35',
+    backgroundColor: '#327ba8',
     color: 'white',
     border: 'none',
     padding: '10px',
