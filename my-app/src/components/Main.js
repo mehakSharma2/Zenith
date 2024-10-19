@@ -76,84 +76,67 @@ export default function Main(props){
     </div>
 
     <div  className="mt-20 w-screen h-screen flex justify-center bg-white  "style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center',  }}>
-        <div className='mt-[100px] w-[85%] p-10 pl-32 flex flex-wrap justify-between text-white opacity-100  '>
+        <div className='mt-[100px] w-[85%] p-10 pl-32 space-x-3 space-y-3 grid grid-cols-3 justify-items-center items-start text-white opacity-100 gap-5 '>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <div className='w-64 h-16'>
-        <a href='https://codedamn.com/learning-path/frontend' className='bg-[#3e92cc]  rounded-lg'>
+        <a href='https://codedamn.com/learning-path/frontend' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
              Frontend developer
         </a>
-        </div>
-        </div>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-             Backend Developer
-        </button>
-        </div>
+        <a href='https://codedamn.com/learning-path/backend' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Backend developer
+        </a>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-             Cybersecurity
-        </button>
-        </div>
+        <a href='https://aigents.co/learn/roadmaps/machine-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Machine Learning
+        </a>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-            Data Analyst
-        </button>
-        </div>
+        <a href='https://codedamn.com/learning-path/devops' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             DevOps
+        </a>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-            DevOps
-        </button>
-        </div>
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Deep Learning
+        </a>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-             Blockchain
-        </button>
-        </div>
+       
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Deep Learning
+        </a>
 
         
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-             Full Stack
-        </button>
-        </div>
+        
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Deep Learning
+        </a>
+
 
         
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-             UI/UX
-        </button>
-        </div>
-
         
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-             AI Engineer
-        </button>
-        </div>
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Deep Learning
+        </a>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-            Game Developer
-        </button>
-        </div>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-             Technical Writer
-        </button>
-        </div>
+       
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Deep Learning
+        </a>
 
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
-             Product Manager
-        </button>
-        </div>
+
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Deep Learning
+        </a>
+
+
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Deep Learning
+        </a>
+
+
+        <a href='https://aigents.co/learn/roadmaps/deep-learning-roadmap' className='bg-[#3e92cc] w-44 h-12 text-center pt-2 rounded-lg'>
+             Deep Learning
+        </a>
+
 
 
 
