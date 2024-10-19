@@ -1,6 +1,7 @@
 import React from 'react'
 import img1 from './img1.png'
 import img2 from './img2.jpg'
+import bgImg from './bgImg.jpeg'
 import {Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from 'react';
@@ -43,7 +44,7 @@ export default function Main(props){
   
   return (
     <>
-    <nav className="bg-[#bb6851] text-white">
+    <nav className="bg-blue-400 text-white">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <span className="self-center text-3xl font-semibold whitespace-nowrap text-shadow-lg dark:text-white">Zenith</span>
       <Link to='/login' className='hover:text-shadow-lg '>Login/SignUp</Link>
@@ -71,79 +72,79 @@ export default function Main(props){
 
     </div>
 
-    <div className="mt-20 w-screen h-screen flex justify-center bg-white ">
-        <div className='mt-[100px] w-[85%] p-10 pl-32 flex flex-wrap justify-between '>
+    <div className="mt-20 w-screen h-screen flex justify-center bg-white  "style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center',  }}>
+        <div className='mt-[100px] w-[85%] p-10 pl-32 flex flex-wrap justify-between text-white opacity-100  '>
 
-        <div className='w-1/4'>
+        <div className='w-1/4 drop-shadow-lg'>
+        <button className='bg-[#c3b298] w-44 h-12 rounded-lg '>
+             Frontend developer
+        </button>
+        </div>
+
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
         </div>
 
-        <div className='w-1/4'>
+        <div className='w-1/4 drop-shadow-lg'>
+        <button className='bg-blue-400 w-44 h-12 rounded-lg '>
+             click
+        </button>
+        </div>
+
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
         </div>
 
-        <div className='w-1/4'>
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
         </div>
 
-        <div className='w-1/4'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
-        </button>
-        </div>
-
-        <div className='w-1/4'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
-        </button>
-        </div>
-
-        <div className='w-1/4'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
-        </button>
-        </div>
-
-        
-        <div className='w-1/4'>
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
         </div>
 
         
-        <div className='w-1/4'>
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
         </div>
 
         
-        <div className='w-1/4'>
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
         </div>
 
-        <div className='w-1/4'>
+        
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
         </div>
 
-        <div className='w-1/4'>
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
         </div>
 
-        <div className='w-1/4'>
+        <div className='w-1/4 drop-shadow-lg'>
+        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
+             click
+        </button>
+        </div>
+
+        <div className='w-1/4 drop-shadow-lg'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
              click
         </button>
