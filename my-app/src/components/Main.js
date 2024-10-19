@@ -79,9 +79,11 @@ export default function Main(props){
         <div className='mt-[100px] w-[85%] p-10 pl-32 flex flex-wrap justify-between text-white opacity-100  '>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+        <div className='w-64 h-16'>
+        <a href='https://codedamn.com/learning-path/frontend' className='bg-[#3e92cc]  rounded-lg'>
              Frontend developer
-        </button>
+        </a>
+        </div>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
