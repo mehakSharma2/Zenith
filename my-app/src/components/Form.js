@@ -119,7 +119,6 @@ function App() {
     <div style={styles.container}>
       <h2 style={styles.h2}>Create Your Customizable Roadmap</h2>
       <form onSubmit={handleSubmit} style={styles.form}>
-        {/* Personal Information */}
         <div style={styles.grid}>
           <div>
             <label htmlFor="name" style={styles.label}>Name</label>
@@ -182,7 +181,6 @@ function App() {
           </div>
         </div>
 
-        {/* Goals & Objectives */}
         <label htmlFor="goals" style={styles.label}>What are your goals?</label>
         <textarea
           id="goals"
@@ -209,8 +207,8 @@ function App() {
           <option value="long-term">Long-term (6+ months)</option>
         </select>
 
-        {/* Field of Interest */}
-        <label htmlFor="field" style={styles.label}>Field of Interest</label>
+
+        <label htmlFor="field" style={styles.label}>Field of Interest 1</label>
         <input
           type="text"
           id="field"
@@ -221,74 +219,52 @@ function App() {
           style={styles.input}
           required
         />
-
-        {/* Learning Preferences */}
-        <label htmlFor="learningMode" style={styles.label}>Preferred Learning Mode</label>
-        <select
-          id="learningMode"
-          name="learningMode"
-          value={formData.learningMode}
-          onChange={handleChange}
-          style={styles.input}
-          required
-        >
-          <option value="videos">Video Tutorials</option>
-          <option value="reading">Reading Materials</option>
-          <option value="projects">Hands-on Projects</option>
-          <option value="interactive">Interactive Quizzes</option>
-        </select>
-
-        <label htmlFor="availability" style={styles.label}>Availability (hours per week)</label>
+        <label htmlFor="field" style={styles.label}>Field of Interest 2</label>
         <input
-          type="number"
-          id="availability"
-          name="availability"
-          value={formData.availability}
+          type="text"
+          id="field"
+          name="field"
+          value={formData.field}
           onChange={handleChange}
-          placeholder="e.g. 10"
+          placeholder="Enter your field of interest (e.g. Web Development)"
           style={styles.input}
           required
         />
-
-        {/* Budget */}
-        <label htmlFor="budget" style={styles.label}>Budget for Resources</label>
-        <select
-          id="budget"
-          name="budget"
-          value={formData.budget}
+        <label htmlFor="field" style={styles.label}>Field of Interest 3</label>
+        <input
+          type="text"
+          id="field"
+          name="field"
+          value={formData.field}
           onChange={handleChange}
+          placeholder="Enter your field of interest (e.g. Web Development)"
           style={styles.input}
           required
-        >
-          <option value="free">Free</option>
-          <option value="low-cost">Low-Cost</option>
-          <option value="premium">Premium</option>
-        </select>
+        />
+        <label htmlFor="field" style={styles.label}>Field of Interest 4</label>
+        <input
+          type="text"
+          id="field"
+          name="field"
+          value={formData.field}
+          onChange={handleChange}
+          placeholder="Enter your field of interest (e.g. Web Development)"
+          style={styles.input}
+          required
+        />
+        <label htmlFor="field" style={styles.label}>Field of Interest 5</label>
+        <input
+          type="text"
+          id="field"
+          name="field"
+          value={formData.field}
+          onChange={handleChange}
+          placeholder="Enter your field of interest (e.g. Web Development)"
+          style={styles.input}
+          required
+        />
+        
 
-        {/* Progress Tracking */}
-        <label style={styles.label}>Would you like reminders?</label>
-        <div style={styles.radioGroup}>
-          <input
-            type="radio"
-            id="reminder-yes"
-            name="reminder"
-            value="yes"
-            checked={formData.reminder === 'yes'}
-            onChange={handleChange}
-          />
-          <label htmlFor="reminder-yes" style={styles.radioLabel}>Yes</label>
-          <input
-            type="radio"
-            id="reminder-no"
-            name="reminder"
-            value="no"
-            checked={formData.reminder === 'no'}
-            onChange={handleChange}
-          />
-          <label htmlFor="reminder-no" style={styles.radioLabel}>No</label>
-        </div>
-
-        {/* Submit Button */}
         <button type="submit" style={styles.button}>Generate Roadmap</button>
       </form>
     </div>
