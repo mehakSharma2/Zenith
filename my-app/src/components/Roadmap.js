@@ -8,11 +8,10 @@ const Roadmap = () => {
   useEffect(() => {
     const roadmapsRef = ref(db, 'roadmaps');
 
-    // Fetch the latest roadmap from Firebase
     onValue(roadmapsRef, (snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
-        // Convert the data into an array and fetch the latest roadmap
+      
         const roadmapArray = Object.values(data);
         const latestRoadmap = roadmapArray[roadmapArray.length - 1];
         setRoadmapData(latestRoadmap);
@@ -22,12 +21,11 @@ const Roadmap = () => {
     });
   }, []);
 
-  // If roadmapData is still loading, show a loading message
+
   if (!roadmapData) {
     return <div className='text-center mt-10 font-semibold text-2xl'>Loading Roadmap...</div>;
   }
 
-  // Generate the circles from the fetched data
   const circles = [
     { text: roadmapData.field1, duration: roadmapData.duration1, color: 'bg-red-500' },
     { text: roadmapData.field2, duration: roadmapData.duration2, color: 'bg-yellow-500' },

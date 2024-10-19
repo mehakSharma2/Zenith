@@ -55,7 +55,7 @@ export default function Main(props){
           <div
             className="bg-red-400 w-10 h-10 rounded-full bg-cover cursor-pointer"
             style={{ backgroundImage: `url(${profile})` }}
-            onClick={props.toggleImage} // Optional: Toggle back to login on click
+            onClick={props.toggleImage} 
           />
         )}
       
@@ -147,23 +147,8 @@ export default function Main(props){
              Python Developer
         </a>
 
-
-
-
-
         </div>
-       
-
-       
-
-        
-
-
-
-
      
-        
-        
     </div>
 
     </>

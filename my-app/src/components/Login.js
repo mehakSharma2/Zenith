@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // For redirection
+import { useNavigate } from 'react-router-dom'; 
 import { auth } from '../firebaseconfig';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   onAuthStateChanged,
-  // deleteUser, // To delete user
 } from 'firebase/auth';
 import image4 from './image4.png';
 
 const App = () => {
-  // State variables
-  const [showFirst, setShowFirst] = useState(true); // Toggle login/signup
+  const [showFirst, setShowFirst] = useState(true); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
-  const [notification, setNotification] = useState(''); // Notification message
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
+  const [notification, setNotification] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const navigate = useNavigate();
 
-  // Clear input fields
+  
   const clearFields = () => {
     setEmail('');
     setPassword('');
@@ -29,73 +27,70 @@ const App = () => {
     setUsername('');
   };
 
-  // Show notification for a specific time
+
   const showNotification = (message, duration) => {
     setNotification(message);
     setTimeout(() => setNotification(''), duration);
   };
 
-  // Manage background image for login page and reset on navigation
   useEffect(() => {
     document.body.style.backgroundImage = `url('${image4}')`;
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundSize = 'cover';
 
-    // Reset background on cleanup (when navigating away from the login page)
+   
     return () => {
       document.body.style.backgroundImage = 'none';
     };
-  }, []); // Apply once when component mounts and clean up on unmount
+  }, []); 
 
-  // Login function
+
   const login = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      setIsLoggedIn(!isLoggedIn); // Set user as logged in
-      showNotification(`Welcome back, ${user.email}`, 10000); // 5s notification
-      clearFields(); // Clear input fields
-      navigate('/'); // Redirect to main page
+      setIsLoggedIn(!isLoggedIn); 
+      showNotification(`Welcome back, ${user.email}`, 10000); 
+      clearFields(); 
+      navigate('/'); 
     } catch (error) {
-      showNotification('Invalid email or password. Please try again.', 10000); // 5s notification
+      showNotification('Invalid email or password. Please try again.', 10000); 
       console.error('Login error:', error);
     }
   };
 
-  // Signup function
+
   const signup = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      setIsLoggedIn(true); // Automatically log the user in
-      showNotification(`Account created for ${user.email}`, 10000); // 2s notification
-      clearFields(); // Clear input fields
-      navigate('/'); // Redirect to main page
+      setIsLoggedIn(true); 
+      showNotification(`Account created for ${user.email}`, 10000); 
+      clearFields();
+      navigate('/'); 
     } catch (error) {
-      showNotification('Email already in use. Please try a different one.', 10000); // 2s notification
+      showNotification('Email already in use. Please try a different one.', 10000); 
       console.error('Signup error:', error);
     }
   };
 
-  // Forgot password function
   const forgotPassword = async () => {
     if (!email) {
-      showNotification('Please enter your email address.', 10000); // 2s notification
+      showNotification('Please enter your email address.', 10000); 
       return;
     }
     try {
       await sendPasswordResetEmail(auth, email);
-      showNotification(`Password reset email sent to ${email}`, 10000); // 2s notification
+      showNotification(`Password reset email sent to ${email}`, 10000); 
     } catch (error) {
-      showNotification('Failed to send password reset email.', 10000); // 2s notification
+      showNotification('Failed to send password reset email.', 10000); 
       console.error('Password reset error:', error);
     }
   };
 
-  // Monitor authentication state
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setIsLoggedIn(true);
@@ -111,7 +106,6 @@ const App = () => {
           {showFirst ? 'Sign in' : 'Signup'}
         </div>
 
-        {/* Show notification if exists */}
         {notification && <div style={styles.notification}>{notification}</div>}
 
         {showFirst ? (
@@ -206,9 +200,9 @@ const App = () => {
 
         <div style={styles.registerText}>
           {showFirst ? (
-            <>Don't have an account yet? <a href="\*" style={styles.link} onClick={() => setShowFirst(false)}>Register for free</a></>
+            <>Don't have an account yet? <a href="#" style={styles.link} onClick={() => setShowFirst(false)}>Register for free</a></>
           ) : (
-            <>Already have an account? <a href="\*" style={styles.link} onClick={() => setShowFirst(true)}>Sign in</a></>
+            <>Already have an account? <a href="#" style={styles.link} onClick={() => setShowFirst(true)}>Sign in</a></>
           )}
         </div>
       </div>
@@ -217,7 +211,7 @@ const App = () => {
   );
 };
 
-// Styles
+
 const styles = {
   loginContainer: {
     display: 'flex',

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { ref, push } from 'firebase/database';
 import { db } from '../firebaseconfig'; 
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 function App() {
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate(); 
 
   const [formData, setFormData] = useState({
     name: '',
@@ -42,15 +42,14 @@ function App() {
     e.preventDefault();
 
     try {
-      // Reference to the "roadmaps" node in your Realtime Database
+      
       const roadmapsRef = ref(db, 'roadmaps');
       
-      // Push form data to Realtime Database
       const newRoadmapRef = await push(roadmapsRef, formData);
 
       console.log('Roadmap created with ID: ', newRoadmapRef.key);
       alert('Roadmap created and saved successfully!');
-      navigate('/roadmap'); // Use navigate to redirect to /roadmap
+      navigate('/roadmap'); 
     } catch (e) {
       console.error('Error saving data to Realtime Database: ', e);
     }

@@ -2,7 +2,6 @@ import './App.css';
 import Main from './components/Main';
 import Form from './components/Form';
 import Login from './components/Login';
-// import Front from '../src/components/roadmaps/Front';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,7 +9,7 @@ import {
 } from "react-router-dom";
 import Roadmap from './components/Roadmap';
 import { useState } from 'react';
-// import Profile from './components/Profile'
+
 
 
 
