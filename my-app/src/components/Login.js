@@ -54,7 +54,7 @@ const App = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      setIsLoggedIn(true); // Set user as logged in
+      setIsLoggedIn(!isLoggedIn); // Set user as logged in
       showNotification(`Welcome back, ${user.email}`, 10000); // 5s notification
       clearFields(); // Clear input fields
       navigate('/'); // Redirect to main page

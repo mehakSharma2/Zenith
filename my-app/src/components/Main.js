@@ -48,10 +48,9 @@ export default function Main(props){
     <nav className="bg-[#3e92cc] text-white">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <span className="self-center text-3xl font-semibold whitespace-nowrap text-shadow-lg dark:text-white">Zenith</span>
-      {/* <Link to='/login' className='hover:text-shadow-lg '>Login/SignUp</Link> */}
+      <Link to='/login' className='hover:text-shadow-lg '>Login/SignUp</Link>
 
-      <div className={`bg-red-400 w-10 h-10 rounded-full bg-url(${profile}) bg-cover`}>
-      </div>
+      {/* <div className="bg-red-400 w-10 h-10 rounded-full bg-cover cursor-pointer " style={{ backgroundImage: `url(${profile})` }}></div> */}
   </div>
   </nav>
   
