@@ -1,11 +1,36 @@
 import React from 'react'
 import img1 from './img1.png'
 import img2 from './img2.jpg'
+import bgImg from './bg-img.webp'
 import {Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from 'react';
+import Typed from 'typed.js';
+
+const TypedComponent = () => {
+     // Create a reference for the DOM element where the animation will be applied
+     const el = useRef(null);
+   
+     useEffect(() => {
+       // Initialize Typed.js
+       const typed = new Typed(el.current, {
+         strings: ['Welcome to OUR website!', 'Explore various features!', 'CHOOSE YOUR CAREER PATHWAY!'], // Strings to be typed
+         typeSpeed: 50, // Speed of typing
+         backSpeed: 50, // Speed of deleting text
+         loop: true, // Loop the animation
+       });
+   
+       // Destroy Typed instance during cleanup to prevent memory leaks
+       return () => {
+         typed.destroy();
+       };
+     }, []);
+   
+     return <span ref={el} />;
+   };
 
 export default function Main(props){
-     document.body.style.backgroundColor = "#f2e7d7"
+     document.body.style.backgroundImage = "#f2e7d7"
 
   const navigate = useNavigate();
 
@@ -17,7 +42,9 @@ export default function Main(props){
 
     navigate("/next-page");
   };
- 
+
+
+  
   return (
     <>
     <nav class="bg-[#bb6851] text-white">
@@ -30,7 +57,7 @@ export default function Main(props){
     <div className='w-screen h-screen flex '>
         <div className='h-full w-1/2 '>
           <h1 className='text-6xl ml-24 mt-56 text-[#95523f]'>Developer Roadmap</h1>
-          <h3 className='text-2xl ml-44 mt-5 text-[#435554]'>CHOOSE YOUR CAREER PATHWAY!</h3>
+          <h3 className='text-2xl ml-44 mt-5 text-[#435554]'><TypedComponent /></h3>
           
           <div className='flex mt-32 space-x-32'>
 
@@ -48,7 +75,7 @@ export default function Main(props){
 
     </div>
 
-    <div className='mt-20 w-screen h-screen flex justify-center '>
+    <div className="mt-20 w-screen h-screen flex justify-center bg-cover bg-center " style={{ backgroundImage: `url(${bgImg})`}}>
         <div className='mt-[100px] w-[85%] p-10 pl-32 flex flex-wrap justify-between '>
 
         <div className='w-1/4'>
@@ -146,4 +173,4 @@ export default function Main(props){
 
     </>
   )
-}
+  }
