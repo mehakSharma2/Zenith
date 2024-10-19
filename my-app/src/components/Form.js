@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { collection, addDoc } from 'firebase/firestore'; // Import Firestore functions
+import { db } from '../firebaseconfig'; // Import Firestore config
 
 function App() {
-  
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -16,7 +17,6 @@ function App() {
     reminder: 'yes',
   });
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -25,11 +25,17 @@ function App() {
     });
   };
 
-  
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form data:', formData);
-    
+
+    try {
+      // Add form data to Firestore
+      const docRef = await addDoc(collection(db, 'roadmaps'), formData);
+      console.log('Document written with ID: ', docRef.id);
+      alert('Roadmap created successfully!');
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
   };
 
 
