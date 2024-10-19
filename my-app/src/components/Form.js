@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { getDatabase, ref, push } from 'firebase/database'; // Import Realtime Database functions
-import { db } from '../firebaseconfig'; // Import Firebase config with Realtime Database
+import { getDatabase, ref, push } from 'firebase/database';
+import { db } from '../firebaseconfig'; 
 
 function App() {
   const [formData, setFormData] = useState({

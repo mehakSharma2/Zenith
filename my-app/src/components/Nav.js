@@ -5,9 +5,9 @@ export default function Nav() {
     <div>
       
 
-<nav class="bg-[#bb6851] text-white">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <span class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">Zenith</span>
+<nav className="bg-[#bb6851] text-white">
+  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">Zenith</span>
   </div>
 </nav>
 
