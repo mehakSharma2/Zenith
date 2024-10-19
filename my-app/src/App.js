@@ -8,6 +8,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+// import Profile from './components/Profile'
 
 
 
@@ -24,10 +25,6 @@ function App() {
         </Routes>
     
      </Router>
-
-     {/* <Front/> */}
-
-
    
 
     </>

@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
-import profile from './profile.webp';
 
 const TypedComponent = () => {
      const el = useRef(null);
@@ -49,8 +48,6 @@ export default function Main(props){
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <span className="self-center text-3xl font-semibold whitespace-nowrap text-shadow-lg dark:text-white">Zenith</span>
       <Link to='/login' className='hover:text-shadow-lg '>Login/SignUp</Link>
-
-      {/* <div className="bg-red-400 w-10 h-10 rounded-full bg-cover cursor-pointer " style={{ backgroundImage: `url(${profile})` }}></div> */}
   </div>
   </nav>
   
@@ -79,11 +76,9 @@ export default function Main(props){
         <div className='mt-[100px] w-[85%] p-10 pl-32 flex flex-wrap justify-between text-white opacity-100  '>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <div className='w-64 h-16'>
-        <a href='https://codedamn.com/learning-path/frontend' className='bg-[#3e92cc]  rounded-lg'>
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
              Frontend developer
-        </a>
-        </div>
+        </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>

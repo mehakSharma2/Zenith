@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getDatabase, ref, push } from 'firebase/database';
+import { ref, push } from 'firebase/database';
 import { db } from '../firebaseconfig'; 
 
 function App() {
@@ -57,14 +57,14 @@ function App() {
       width: '80%',
       margin: 'auto',
       padding: '20px',
-      backgroundColor: '#f2e7d7',
+      backgroundColor: '#B2CEE3',
       boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
       marginTop: '50px',
       fontFamily: 'Josefin sans',
     },
     h2: {
       textAlign: 'center',
-      color: '#bb6857',
+      color: '#3e92cc',
       fontWeight: 'bold',
       fontSize: '36px',
     },
@@ -91,7 +91,7 @@ function App() {
     },
     button: {
       marginTop: '20px',
-      backgroundColor: '#bb6857',
+      backgroundColor: '#3e92cc',
       color: 'white',
       padding: '10px',
       border: 'none',
@@ -101,7 +101,7 @@ function App() {
       fontSize: '16px',
     },
     buttonHover: {
-      backgroundColor: '#95523f',
+      backgroundColor: '#1390E9',
     },
     grid: {
       display: 'grid',
@@ -206,19 +206,15 @@ function App() {
           required
         ></textarea>
 
-        <label htmlFor="completionTime" style={styles.label}>Target Completion Time</label>
-        <select
-          id="completionTime"
-          name="completionTime"
-          value={formData.completionTime}
-          onChange={handleChange}
+        <label htmlFor="completionTime" style={styles.label}>Email</label>
+        <input
+          
+          placeholder={`Enter your email`}
           style={styles.input}
           required
         >
-          <option value="short-term">Short-term (1-3 months)</option>
-          <option value="medium-term">Medium-term (4-6 months)</option>
-          <option value="long-term">Long-term (6+ months)</option>
-        </select>
+          
+        </input>
 
         {['1', '2', '3', '4', '5'].map((num) => (
           <React.Fragment key={num}>
