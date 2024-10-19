@@ -8,19 +8,16 @@ import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 
 const TypedComponent = () => {
-     // Create a reference for the DOM element where the animation will be applied
      const el = useRef(null);
    
      useEffect(() => {
-       // Initialize Typed.js
        const typed = new Typed(el.current, {
-         strings: ['Welcome to OUR website!', 'Explore various features!', 'CHOOSE YOUR CAREER PATHWAY!'], // Strings to be typed
-         typeSpeed: 50, // Speed of typing
-         backSpeed: 50, // Speed of deleting text
-         loop: true, // Loop the animation
+         strings: ['Welcome to OUR website!', 'Explore various features!', 'CHOOSE YOUR CAREER PATHWAY!'], 
+         typeSpeed: 50, 
+         backSpeed: 50, 
+         loop: true, 
        });
    
-       // Destroy Typed instance during cleanup to prevent memory leaks
        return () => {
          typed.destroy();
        };
@@ -30,7 +27,7 @@ const TypedComponent = () => {
    };
 
 export default function Main(props){
-     document.body.style.backgroundImage = "#f2e7d7"
+     document.body.style.backgroundColor = "#f2e7d7"
 
   const navigate = useNavigate();
 
