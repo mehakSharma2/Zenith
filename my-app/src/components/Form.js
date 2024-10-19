@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { ref, push } from 'firebase/database';
 import { db } from '../firebaseconfig'; 
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function App() {
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -48,6 +50,7 @@ function App() {
 
       console.log('Roadmap created with ID: ', newRoadmapRef.key);
       alert('Roadmap created and saved successfully!');
+      navigate('/roadmap'); // Use navigate to redirect to /roadmap
     } catch (e) {
       console.error('Error saving data to Realtime Database: ', e);
     }
@@ -92,7 +95,7 @@ function App() {
     },
     button: {
       marginTop: '20px',
-      textAlign : 'center',
+      textAlign: 'center',
       backgroundColor: '#3e92cc',
       color: 'white',
       padding: '10px',
@@ -218,10 +221,7 @@ function App() {
           placeholder="Enter your email"
           style={styles.input}
           required
-        >
-
-          
-        </input>
+        />
 
         {['1', '2', '3', '4', '5'].map((num) => (
           <React.Fragment key={num}>
@@ -255,7 +255,7 @@ function App() {
           </React.Fragment>
         ))}
 
-      <Link to='/roadmap' style={styles.button}>Generate Roadmap</Link>
+        <button type="submit" style={styles.button}>Generate Roadmap</button> {/* Submit button */}
       </form>
     </div>
   );
