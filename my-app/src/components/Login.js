@@ -206,9 +206,9 @@ const App = () => {
 
         <div style={styles.registerText}>
           {showFirst ? (
-            <>Don't have an account yet? <a href="#" style={styles.link} onClick={() => setShowFirst(false)}>Register for free</a></>
+            <>Don't have an account yet? <a href="\*" style={styles.link} onClick={() => setShowFirst(false)}>Register for free</a></>
           ) : (
-            <>Already have an account? <a href="#" style={styles.link} onClick={() => setShowFirst(true)}>Sign in</a></>
+            <>Already have an account? <a href="\*" style={styles.link} onClick={() => setShowFirst(true)}>Sign in</a></>
           )}
         </div>
       </div>
