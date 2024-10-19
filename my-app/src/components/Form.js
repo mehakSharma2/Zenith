@@ -255,7 +255,7 @@ function App() {
           </React.Fragment>
         ))}
 
-      <Link to='/roadmap' style={styles.button}>Generate Roadmap</Link>
+      <Link to='/roadmap' onClick={handleSubmit} style={styles.button}>Generate Roadmap</Link>
       </form>
     </div>
   );
