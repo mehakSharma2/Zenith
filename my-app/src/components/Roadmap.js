@@ -11,24 +11,30 @@ const circles = [
 
 const Roadmap = () => (
   <div className="flex justify-center items-center min-h-screen bg-gray-800">
-    <div className="flex flex-wrap justify-center gap-10">
+    <div className="flex flex-row items-center gap-16">
       {circles.map((circle, index) => (
-        <div key={index} className="relative flex flex-col items-center">
+        <div
+          key={index}
+          className={`relative flex flex-col items-center ${
+            index % 2 === 0 ? 'mt-10 ' : 'mb-10 '
+          }`} // Alternates the position of the circles (above or below the center line)
+        >
           {/* Connecting lines */}
           {index > 0 && (
             <div
-              className="absolute w-20 h-1 bg-white z-20"
-              style={{ top: '50%', left: '-5rem', transform: `rotate(${index % 2 !== 0 ? '45deg' : '-45deg'})` }}
+              className="absolute w-28 h-1 bg-white z-20"
+              style={{
+                top: '50%',
+                left: '-5rem', // Aligns line to connect circles
+                transform: `rotate(${index % 2 === 0 ? '45deg' : '-45deg'})`, // Alternates rotation for zigzag effect
+              }}
             />
           )}
-          {/* Wrapper to handle margins */}
-          <div className="my-4">
-            {/* Circle */}
-            <div
-              className={`${circle.color} text-white flex items-center justify-center rounded-full w-32 h-32 shadow-lg z-50`}
-            >
-              <p className="text-center text-sm font-bold">{circle.text}</p>
-            </div>
+          {/* Circle */}
+          <div
+            className={`${circle.color} text-white flex items-center justify-center rounded-full w-32 h-32 shadow-lg z-50`}
+          >
+            <p className="text-center text-sm font-bold">{circle.text}</p>
           </div>
         </div>
       ))}
