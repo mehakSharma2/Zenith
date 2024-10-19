@@ -1,10 +1,10 @@
 import React from 'react';
 
 const circles = [
-  { text: 'FUNDAMENTALS', color: 'bg-red-500' },
-  { text: 'BACK-END DEVELOPMENT', color: 'bg-yellow-500' },
-  { text: 'FRONT-END DEVELOPMENT', color: 'bg-orange-500' },
-  { text: 'DEVOPS', color: 'bg-gray-700' },
+  { text: 'HTML', color: 'bg-red-500' },
+  { text: 'Cascading StyleSheet(CSS)', color: 'bg-yellow-500' },
+  { text: 'JavaScript', color: 'bg-orange-500' },
+  { text: '', color: 'bg-gray-700' },
   { text: 'PROJECT WORK', color: 'bg-orange-700' },
   { text: 'CONTINUE LEARNING', color: 'bg-yellow-600' },
 ];

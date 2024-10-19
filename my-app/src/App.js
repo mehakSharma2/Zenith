@@ -2,6 +2,7 @@ import './App.css';
 import Main from './components/Main';
 import Form from './components/Form';
 import Login from './components/Login';
+// import Front from '../src/components/roadmaps/Front';
 import {
   BrowserRouter as Router,
   Route,
@@ -24,8 +25,6 @@ function App() {
         </Routes>
     
      </Router>
-
-     {/* <Profile/> */}
    
 
     </>
