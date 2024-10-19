@@ -206,13 +206,18 @@ function App() {
           required
         ></textarea>
 
-        <label htmlFor="completionTime" style={styles.label}>Email</label>
+        <label htmlFor="mail" style={styles.label}>Email</label>
         <input
-          
-          placeholder={`Enter your email`}
+          type="email"
+          id="mail"
+          name="mail"
+          value={formData.mail}
+          onChange={handleChange}
+          placeholder="Enter your email"
           style={styles.input}
           required
         >
+
           
         </input>
 
