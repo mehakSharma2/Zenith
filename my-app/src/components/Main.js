@@ -44,7 +44,7 @@ export default function Main(props){
   
   return (
     <>
-    <nav className="bg-[#bb6851] text-white">
+    <nav className="bg-[#3e92cc] text-white">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <span className="self-center text-3xl font-semibold whitespace-nowrap text-shadow-lg dark:text-white">Zenith</span>
       <Link to='/login' className='hover:text-shadow-lg '>Login/SignUp</Link>
@@ -72,81 +72,81 @@ export default function Main(props){
 
     </div>
 
-    <div className="mt-20 w-screen h-screen flex justify-center bg-white  "style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center',  }}>
+    <div  className="mt-20 w-screen h-screen flex justify-center bg-white  "style={{ backgroundImage: `url(${bgImg})`, backgroundSize: 'cover', backgroundPosition: 'center',  }}>
         <div className='mt-[100px] w-[85%] p-10 pl-32 flex flex-wrap justify-between text-white opacity-100  '>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#c3b298] w-44 h-12 rounded-lg '>
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
              Frontend developer
         </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+             Backend Developer
         </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-blue-400 w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+             Cybersecurity
         </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+            Data Analyst
         </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+            DevOps
         </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
-        </button>
-        </div>
-
-        
-        <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+             Blockchain
         </button>
         </div>
 
         
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+             Full Stack
         </button>
         </div>
 
         
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+             UI/UX
+        </button>
+        </div>
+
+        
+        <div className='w-1/4 drop-shadow-lg'>
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+             AI Engineer
         </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+            Game Developer
         </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+             Technical Writer
         </button>
         </div>
 
         <div className='w-1/4 drop-shadow-lg'>
-        <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>
-             click
+        <button className='bg-[#3e92cc] w-44 h-12 rounded-lg '>
+             Product Manager
         </button>
         </div>
 
