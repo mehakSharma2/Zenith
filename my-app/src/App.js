@@ -1,13 +1,13 @@
 import './App.css';
-import Front from './components/roadmap.js/Front';
-// import Main from './components/Main';
-// import Form from './components/Form';
-// import Login from './components/Login';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Routes
-// } from "react-router-dom";
+import Main from './components/Main';
+import Form from './components/Form';
+import Login from './components/Login';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+// import Profile from './components/Profile'
 
 
 
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-     {/* <Router>
+     <Router>
 
     <Routes>
      <Route  path="/" element={<Main/>} />
@@ -23,9 +23,9 @@ function App() {
      <Route  path="/login" element={<Login/>} />
         </Routes>
     
-     </Router> */}
+     </Router>
 
-   <Front/>
+     {/* <Profile/> */}
    
 
     </>

@@ -71,11 +71,11 @@ const App = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       setIsLoggedIn(true); // Automatically log the user in
-      showNotification(`Account created for ${user.email}`, 2000); // 2s notification
+      showNotification(`Account created for ${user.email}`, 5000); // 2s notification
       clearFields(); // Clear input fields
       navigate('/'); // Redirect to main page
     } catch (error) {
-      showNotification('Email already in use. Please try a different one.', 2000); // 2s notification
+      showNotification('Email already in use. Please try a different one.', 5000); // 2s notification
       console.error('Signup error:', error);
     }
   };
