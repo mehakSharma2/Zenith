@@ -1,80 +1,167 @@
 import React, { useState } from 'react';
+import { auth } from '../firebaseconfig'; // Import the Firebase auth instance
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail, // Import the reset password function
+} from 'firebase/auth';
 import image4 from './image4.png';
 
 const App = () => {
-  
+  // Set the background image for the page
   document.body.style.backgroundImage = `url('${image4}')`;
   document.body.style.backgroundPosition = 'center';
   document.body.style.backgroundRepeat = 'no-repeat';
   document.body.style.backgroundSize = 'cover';
 
-  
-  const [showFirst, setShowFirst] = useState(true);
+  const [showFirst, setShowFirst] = useState(true); // Toggle between login and signup
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
 
-  
-  const login = () => {
-    alert('Login function called');
+  // Login function using Firebase Authentication
+  const login = async (e) => {
+    e.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      alert(`Welcome back, ${user.email}`);
+      console.log('User logged in:', user);
+    } catch (error) {
+      alert(`Login failed: ${error.message}`);
+      console.error('Login error:', error);
+    }
   };
 
-  const signup = () => {
-    alert('Signup function called');
+  // Signup function using Firebase Authentication
+  const signup = async (e) => {
+    e.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      alert(`Account created for ${user.email}`);
+      console.log('User signed up:', user);
+    } catch (error) {
+      alert(`Signup failed: ${error.message}`);
+      console.error('Signup error:', error);
+    }
+  };
+
+  // Forgot password function using Firebase Authentication
+  const forgotPassword = async () => {
+    if (!email) {
+      alert('Please enter your email address to reset your password.');
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert(`Password reset email sent to ${email}`);
+    } catch (error) {
+      alert(`Failed to send password reset email: ${error.message}`);
+      console.error('Password reset error:', error);
+    }
   };
 
   return (
-    <div style={styles.loginContainer} className='opacity-85'>
+    <div style={styles.loginContainer} className="opacity-85">
       <div style={styles.loginBox}>
         <div style={styles.logo}>
           {showFirst ? 'Sign in' : 'Signup'}
         </div>
 
-        {}
+        {/* Login form */}
         {showFirst ? (
           <div>
-            {}
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              login();
-            }}>
+            <form onSubmit={login}>
               <div style={styles.inputBox}>
                 <label style={styles.label}>Email</label>
-                <input type="email" placeholder="username@gmail.com" style={styles.input} required />
+                <input
+                  type="email"
+                  placeholder="username@gmail.com"
+                  style={styles.input}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
               <div style={styles.inputBox}>
                 <label style={styles.label}>Password</label>
-                <input type="password" placeholder="Password" style={styles.input} required />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  style={styles.input}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </div>
-              
 
               <div style={styles.forgotPassword}>
-                <a href="/" style={styles.link}>Forgot Password?</a>
+                <button
+                  type="button"
+                  onClick={forgotPassword}
+                  style={styles.linkButton}
+                >
+                  Forgot Password?
+                </button>
               </div>
-              <button style={styles.loginButton} type="submit">Sign in</button>
+              <button style={styles.loginButton} type="submit">
+                Sign in
+              </button>
             </form>
           </div>
         ) : (
           <div>
-            {}
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              signup();
-            }}>
+            {/* Signup form */}
+            <form onSubmit={signup}>
               <div style={styles.inputBox}>
                 <label style={styles.label}>Name</label>
-                <input type="text" placeholder="Your Name" style={styles.input} required />
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  style={styles.input}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
               </div>
               <div style={styles.inputBox}>
                 <label style={styles.label}>Username</label>
-                <input type="text" placeholder="username123@" style={styles.input} required />
+                <input
+                  type="text"
+                  placeholder="username123@"
+                  style={styles.input}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
               </div>
               <div style={styles.inputBox}>
                 <label style={styles.label}>Email</label>
-                <input type="email" placeholder="username@gmail.com" style={styles.input} required />
+                <input
+                  type="email"
+                  placeholder="username@gmail.com"
+                  style={styles.input}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
               <div style={styles.inputBox}>
                 <label style={styles.label}>Password</label>
-                <input type="password" placeholder="Password" style={styles.input} required />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  style={styles.input}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </div>
-              <button style={styles.loginButton} type="submit">Sign up</button>
+              <button style={styles.loginButton} type="submit">
+                Sign up
+              </button>
             </form>
           </div>
         )}
@@ -92,6 +179,7 @@ const App = () => {
   );
 };
 
+// Styles (unchanged)
 const styles = {
   loginContainer: {
     display: 'flex',
@@ -130,10 +218,13 @@ const styles = {
   forgotPassword: {
     textAlign: 'right',
   },
-  link: {
-    textDecoration: 'none',
+  linkButton: {
+    background: 'none',
+    border: 'none',
     color: '#327ba8',
     fontSize: '14px',
+    cursor: 'pointer',
+    textDecoration: 'underline',
   },
   loginButton: {
     backgroundColor: '#327ba8',

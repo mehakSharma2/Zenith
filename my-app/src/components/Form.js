@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore'; // Import Firestore functions
-import { db } from '../firebaseconfig'; // Import Firestore config
+import { getDatabase, ref, push } from 'firebase/database'; // Import Realtime Database functions
+import { db } from '../firebaseconfig'; // Import Firebase config with Realtime Database
 
 function App() {
   const [formData, setFormData] = useState({
@@ -15,6 +15,16 @@ function App() {
     availability: '',
     budget: 'free',
     reminder: 'yes',
+    field1: '',
+    field2: '',
+    field3: '',
+    field4: '',
+    field5: '',
+    duration1: '',
+    duration2: '',
+    duration3: '',
+    duration4: '',
+    duration5: '',
   });
 
   const handleChange = (e) => {
@@ -29,15 +39,18 @@ function App() {
     e.preventDefault();
 
     try {
-      // Add form data to Firestore
-      const docRef = await addDoc(collection(db, 'roadmaps'), formData);
-      console.log('Document written with ID: ', docRef.id);
-      alert('Roadmap created successfully!');
+      // Reference to the "roadmaps" node in your Realtime Database
+      const roadmapsRef = ref(db, 'roadmaps');
+      
+      // Push form data to Realtime Database
+      const newRoadmapRef = await push(roadmapsRef, formData);
+
+      console.log('Roadmap created with ID: ', newRoadmapRef.key);
+      alert('Roadmap created and saved successfully!');
     } catch (e) {
-      console.error('Error adding document: ', e);
+      console.error('Error saving data to Realtime Database: ', e);
     }
   };
-
 
   const styles = {
     container: {
@@ -52,8 +65,8 @@ function App() {
     h2: {
       textAlign: 'center',
       color: '#bb6857',
-      fontWeight: 'bold', 
-      fontSize: '36px', 
+      fontWeight: 'bold',
+      fontSize: '36px',
     },
     form: {
       display: 'flex',
@@ -113,7 +126,7 @@ function App() {
     },
   };
 
-  document.body.style.backgroundColor = "white"
+  document.body.style.backgroundColor = 'white';
 
   return (
     <div style={styles.container}>
@@ -207,131 +220,37 @@ function App() {
           <option value="long-term">Long-term (6+ months)</option>
         </select>
 
+        {['1', '2', '3', '4', '5'].map((num) => (
+          <React.Fragment key={num}>
+            <label htmlFor={`field${num}`} style={styles.label}>
+              Field of Interest {num}
+            </label>
+            <input
+              type="text"
+              id={`field${num}`}
+              name={`field${num}`}
+              value={formData[`field${num}`]}
+              onChange={handleChange}
+              placeholder={`Enter your field of interest ${num} (e.g., Web Development)`}
+              style={styles.input}
+              required
+            />
 
-        <label htmlFor="field" style={styles.label}>Field of Interest 1</label>
-        <input
-          type="text"
-          id="field"
-          name="field"
-          value={formData.field}
-          onChange={handleChange}
-          placeholder="Enter your field of interest (e.g. Web Development)"
-          style={styles.input}
-          required
-        />
-
-
-<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
-<input
-  type="text"
-  id="duration"
-  name="duration"
-  value={formData.duration}
-  onChange={handleChange}
-  placeholder="Enter duration (e.g. 6 months)"
-  style={styles.input}
-  required
-/>
-
-        <label htmlFor="field" style={styles.label}>Field of Interest 2</label>
-        <input
-          type="text"
-          id="field"
-          name="field"
-          value={formData.field}
-          onChange={handleChange}
-          placeholder="Enter your field of interest (e.g. Web Development)"
-          style={styles.input}
-          required
-        />
-
-<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
-<input
-  type="text"
-  id="duration"
-  name="duration"
-  value={formData.duration}
-  onChange={handleChange}
-  placeholder="Enter duration (e.g. 6 months)"
-  style={styles.input}
-  required
-/>
-
-
-        <label htmlFor="field" style={styles.label}>Field of Interest 3</label>
-        <input
-          type="text"
-          id="field"
-          name="field"
-          value={formData.field}
-          onChange={handleChange}
-          placeholder="Enter your field of interest (e.g. Web Development)"
-          style={styles.input}
-          required
-        />
-
-<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
-<input
-  type="text"
-  id="duration"
-  name="duration"
-  value={formData.duration}
-  onChange={handleChange}
-  placeholder="Enter duration (e.g. 6 months)"
-  style={styles.input}
-  required
-/>
-
-
-        <label htmlFor="field" style={styles.label}>Field of Interest 4</label>
-        <input
-          type="text"
-          id="field"
-          name="field"
-          value={formData.field}
-          onChange={handleChange}
-          placeholder="Enter your field of interest (e.g. Web Development)"
-          style={styles.input}
-          required
-        />
-
-<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
-<input
-  type="text"
-  id="duration"
-  name="duration"
-  value={formData.duration}
-  onChange={handleChange}
-  placeholder="Enter duration (e.g. 6 months)"
-  style={styles.input}
-  required
-/>
-
-
-        <label htmlFor="field" style={styles.label}>Field of Interest 5</label>
-        <input
-          type="text"
-          id="field"
-          name="field"
-          value={formData.field}
-          onChange={handleChange}
-          placeholder="Enter your field of interest (e.g. Web Development)"
-          style={styles.input}
-          required
-        />
-
-<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
-<input
-  type="text"
-  id="duration"
-  name="duration"
-  value={formData.duration}
-  onChange={handleChange}
-  placeholder="Enter duration (e.g. 6 months)"
-  style={styles.input}
-  required
-/>
-        
+            <label htmlFor={`duration${num}`} style={styles.label}>
+              Duration of Completion
+            </label>
+            <input
+              type="text"
+              id={`duration${num}`}
+              name={`duration${num}`}
+              value={formData[`duration${num}`]}
+              onChange={handleChange}
+              placeholder="Enter duration (e.g., 6 months)"
+              style={styles.input}
+              required
+            />
+          </React.Fragment>
+        ))}
 
         <button type="submit" style={styles.button}>Generate Roadmap</button>
       </form>
