@@ -180,51 +180,51 @@
 
 
 
-import React from 'react';
+// import React from 'react';
 
-const Roadmap = () => {
-  return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="flex items-center">
-        {/* Rounded Rectangle Box 1 */}
-        <div className="bg-green-500 text-white text-xl px-6 py-4 rounded-full text-center">
-          HTML
-        </div>
-        {/* Line with Arrow (SVG) */}
-        <svg className="mx-4" width="100" height="50">
-          <line
-            x1="0"
-            y1="25"
-            x2="100"
-            y2="25"
-            stroke="black"
-            strokeWidth="2"
-            markerEnd="url(#arrowhead)"
-          />
-        </svg>
-        {/* Rounded Rectangle Box 2 */}
-        <div className="bg-green-500 text-white text-xl px-6 py-4 rounded-full text-center">
-          CSS
-        </div>
-      </div>
+// const Roadmap = () => {
+//   return (
+//     <div className="flex items-center justify-center h-screen bg-gray-100">
+//       <div className="flex items-center">
+//         {/* Rounded Rectangle Box 1 */}
+//         <div className="bg-green-500 text-white text-xl px-6 py-4 rounded-full text-center">
+//           HTML
+//         </div>
+//         {/* Line with Arrow (SVG) */}
+//         <svg className="mx-4" width="100" height="50">
+//           <line
+//             x1="0"
+//             y1="25"
+//             x2="100"
+//             y2="25"
+//             stroke="black"
+//             strokeWidth="2"
+//             markerEnd="url(#arrowhead)"
+//           />
+//         </svg>
+//         {/* Rounded Rectangle Box 2 */}
+//         <div className="bg-green-500 text-white text-xl px-6 py-4 rounded-full text-center">
+//           CSS
+//         </div>
+//       </div>
 
-      {/* SVG Arrow Definition */}
-      <svg style={{ position: 'absolute' }} height="0" width="0">
-        <defs>
-          <marker
-            id="arrowhead"
-            markerWidth="10"
-            markerHeight="7"
-            refX="10"
-            refY="3.5"
-            orient="auto"
-          >
-            <polygon points="0 0, 10 3.5, 0 7" />
-          </marker>
-        </defs>
-      </svg>
-    </div>
-  );
-};
+//       {/* SVG Arrow Definition */}
+//       <svg style={{ position: 'absolute' }} height="0" width="0">
+//         <defs>
+//           <marker
+//             id="arrowhead"
+//             markerWidth="10"
+//             markerHeight="7"
+//             refX="10"
+//             refY="3.5"
+//             orient="auto"
+//           >
+//             <polygon points="0 0, 10 3.5, 0 7" />
+//           </marker>
+//         </defs>
+//       </svg>
+//     </div>
+//   );
+// };
 
-export default Roadmap;
+// export default Roadmap;
