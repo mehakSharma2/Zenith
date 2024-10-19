@@ -1,17 +1,17 @@
 import './App.css';
 import Main from './components/Main';
-import Nav from './components/Nav';
 import Form from './components/Form';
+import Login from './components/Login';
 import {
   BrowserRouter as Router,
   Route,
   Routes
 } from "react-router-dom";
-import Login from './components/Login';
+
 
 
 function App() {
-  document.body.style.backgroundColor = "#f2e7d7"
+
   return (
     <>
      <Router>

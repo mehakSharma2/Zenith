@@ -2,13 +2,28 @@ import React from 'react'
 import img1 from './img1.png'
 import img2 from './img2.jpg'
 import {Link} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-export default function Main() {
+export default function Main(props){
+     document.body.style.backgroundColor = "#f2e7d7"
+
+  const navigate = useNavigate();
+
+  const nextPage = () => {
+    window.scrollBy({
+        top: window.innerHeight*2,
+        behavior: 'smooth'      
+      });
+
+    navigate("/next-page");
+  };
+ 
   return (
     <>
     <nav class="bg-[#bb6851] text-white">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <span class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">Zenith</span>
+      <Link to='/login'>Login/SignUp</Link>
   </div>
   </nav>
   
@@ -19,11 +34,8 @@ export default function Main() {
           
           <div className='flex mt-32 space-x-32'>
 
-          <Link className='w-56 h-16 bg-[#cfc3b2] text-[#95523f]  rounded-2xl ml-28' to='/Form'>Customise your own ROADMAP</Link>
-
-
-
-<button className='w-56 h-16 bg-red-200 text-[#95523f] p-1 rounded-2xl'> View ROADMAPS </button>
+          <Link className='w-56 h-16 p-2 bg-[#cfc3b2] text-[#95523f] text-center  rounded-2xl ml-28' to='/Form'>Customise your own <strong >ROADMAP</strong></Link>
+          <Link onClick={nextPage} className='w-56 h-16 pt-5 bg-red-200 text-[#95523f] text-center rounded-2xl' to='/'>View ROADMAPS</Link>
 
           </div>
         </div>
@@ -37,7 +49,7 @@ export default function Main() {
     </div>
 
     <div className='mt-20 w-screen h-screen flex justify-center '>
-        <div className=' w-[85%] p-10 pl-32 flex flex-wrap justify-between '>
+        <div className='mt-[100px] w-[85%] p-10 pl-32 flex flex-wrap justify-between '>
 
         <div className='w-1/4'>
         <button className='bg-[#bb6851] w-44 h-12 rounded-lg '>

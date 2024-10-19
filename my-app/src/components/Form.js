@@ -107,6 +107,8 @@ function App() {
     },
   };
 
+  document.body.style.backgroundColor = "white"
+
   return (
     <div style={styles.container}>
       <h2 style={styles.h2}>Create Your Customizable Roadmap</h2>
