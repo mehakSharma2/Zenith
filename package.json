@@ -10,7 +10,8 @@
     "install:backend": "cd backend && npm install"
   },
   "dependencies": {
-    "concurrently": "^9.0.1"
+    "concurrently": "^9.0.1",
+    "firebase": "^10.14.1"
   },
   "author": "",
   "license": "ISC"
