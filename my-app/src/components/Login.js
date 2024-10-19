@@ -55,11 +55,11 @@ const App = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       setIsLoggedIn(true); // Set user as logged in
-      showNotification(`Welcome back, ${user.email}`, 5000); // 5s notification
+      showNotification(`Welcome back, ${user.email}`, 10000); // 5s notification
       clearFields(); // Clear input fields
       navigate('/'); // Redirect to main page
     } catch (error) {
-      showNotification('Invalid email or password. Please try again.', 5000); // 5s notification
+      showNotification('Invalid email or password. Please try again.', 10000); // 5s notification
       console.error('Login error:', error);
     }
   };
@@ -71,11 +71,11 @@ const App = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       setIsLoggedIn(true); // Automatically log the user in
-      showNotification(`Account created for ${user.email}`, 5000); // 2s notification
+      showNotification(`Account created for ${user.email}`, 10000); // 2s notification
       clearFields(); // Clear input fields
       navigate('/'); // Redirect to main page
     } catch (error) {
-      showNotification('Email already in use. Please try a different one.', 5000); // 2s notification
+      showNotification('Email already in use. Please try a different one.', 10000); // 2s notification
       console.error('Signup error:', error);
     }
   };
@@ -83,14 +83,14 @@ const App = () => {
   // Forgot password function
   const forgotPassword = async () => {
     if (!email) {
-      showNotification('Please enter your email address.', 2000); // 2s notification
+      showNotification('Please enter your email address.', 10000); // 2s notification
       return;
     }
     try {
       await sendPasswordResetEmail(auth, email);
-      showNotification(`Password reset email sent to ${email}`, 2000); // 2s notification
+      showNotification(`Password reset email sent to ${email}`, 10000); // 2s notification
     } catch (error) {
-      showNotification('Failed to send password reset email.', 2000); // 2s notification
+      showNotification('Failed to send password reset email.', 10000); // 2s notification
       console.error('Password reset error:', error);
     }
   };
