@@ -219,6 +219,20 @@ function App() {
           style={styles.input}
           required
         />
+
+
+<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
+<input
+  type="text"
+  id="duration"
+  name="duration"
+  value={formData.duration}
+  onChange={handleChange}
+  placeholder="Enter duration (e.g. 6 months)"
+  style={styles.input}
+  required
+/>
+
         <label htmlFor="field" style={styles.label}>Field of Interest 2</label>
         <input
           type="text"
@@ -230,6 +244,20 @@ function App() {
           style={styles.input}
           required
         />
+
+<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
+<input
+  type="text"
+  id="duration"
+  name="duration"
+  value={formData.duration}
+  onChange={handleChange}
+  placeholder="Enter duration (e.g. 6 months)"
+  style={styles.input}
+  required
+/>
+
+
         <label htmlFor="field" style={styles.label}>Field of Interest 3</label>
         <input
           type="text"
@@ -241,6 +269,20 @@ function App() {
           style={styles.input}
           required
         />
+
+<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
+<input
+  type="text"
+  id="duration"
+  name="duration"
+  value={formData.duration}
+  onChange={handleChange}
+  placeholder="Enter duration (e.g. 6 months)"
+  style={styles.input}
+  required
+/>
+
+
         <label htmlFor="field" style={styles.label}>Field of Interest 4</label>
         <input
           type="text"
@@ -252,6 +294,20 @@ function App() {
           style={styles.input}
           required
         />
+
+<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
+<input
+  type="text"
+  id="duration"
+  name="duration"
+  value={formData.duration}
+  onChange={handleChange}
+  placeholder="Enter duration (e.g. 6 months)"
+  style={styles.input}
+  required
+/>
+
+
         <label htmlFor="field" style={styles.label}>Field of Interest 5</label>
         <input
           type="text"
@@ -263,6 +319,18 @@ function App() {
           style={styles.input}
           required
         />
+
+<label htmlFor="duration" style={styles.label}>Duration of Completion</label>
+<input
+  type="text"
+  id="duration"
+  name="duration"
+  value={formData.duration}
+  onChange={handleChange}
+  placeholder="Enter duration (e.g. 6 months)"
+  style={styles.input}
+  required
+/>
         
 
         <button type="submit" style={styles.button}>Generate Roadmap</button>
