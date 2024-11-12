@@ -9,6 +9,9 @@ import {
 } from "react-router-dom";
 import Roadmap from './components/Roadmap';
 import { useState } from 'react';
+import Chat from './components/AI queries/Chat'
+
+
 
 
 
@@ -30,9 +33,13 @@ function App() {
      <Route  path="/Form" element={<Form/>} />
      <Route  path="/login" element={<Login/>} />
      <Route  path="/roadmap" element={<Roadmap/>} />
+     <Route  path="/ai" element={<Chat/>} />
         </Routes>
     
      </Router>
+
+
+    
    
 
     </>

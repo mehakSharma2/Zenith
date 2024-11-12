@@ -40,14 +40,13 @@ export default function Main(props){
 
     navigate("/next-page");
   };
-
-
   
   return (
     <>
     <nav className="bg-[#3e92cc] text-white">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <span className="self-center text-3xl font-semibold whitespace-nowrap text-shadow-lg dark:text-white">Zenith</span>
+     <span className="self-center text-3xl font-semibold whitespace-nowrap text-shadow-lg dark:text-white">Zenith</span>
+     <Link to="/ai"className="text-xl font-semibold -ml-[50rem] text-shadow-lg dark:text-white">AI Query</Link>
 
       {props.image ? (
           <Link to="/login" className="hover:text-shadow-lg" onClick={props.toggleImage}>Login/SignUp</Link>
@@ -70,7 +69,6 @@ export default function Main(props){
           <h3 className='text-2xl ml-44 mt-5 text-[#435554]'><TypedComponent /></h3>
           
           <div className='flex mt-32 space-x-32'>
-
           <Link className='w-56 h-16 p-2 bg-[#3E92CC] text-white text-center drop-shadow-2xl rounded-2xl ml-28 hover:text-shadow-lg' to='/Form'>Customise your own <strong >ROADMAP</strong></Link>
           <Link onClick={nextPage} className='w-56 h-16 pt-5 bg-[#3E92CC] drop-shadow-2xl  text-white text-center rounded-2xl hover:text-shadow-lg' to='/'>View ROADMAPS</Link>
 
